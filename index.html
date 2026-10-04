@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Chat - 𝐃𝐡𝐚𝐚𝐚𝐫𝐫𝐫 & Babu's Sai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="mode-phone">
+  <div class="app-container">
+    
+    <!-- Phone Mockup Container -->
+    <div class="phone-frame">
+      
+      <!-- iOS / Android Notch Bar -->
+      <div class="phone-notch-bar">
+        <span id="notchTime">9:41</span>
+        <div class="dynamic-island"></div>
+        <div class="notch-icons">
+          <svg width="15" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M0 10h3v2H0v-2zm4-3h3v5H4V7zm4-3h3v8H8V4zm4-4h3v12h-3V0z"/></svg>
+          <svg width="15" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.5C5.1 2.5 2.5 3.7.8 5.7L0 4.8C2 2.6 4.9 1.2 8 1.2s6 1.4 8 3.6l-.8.9C13.5 3.7 10.9 2.5 8 2.5zm0 3.3c-1.9 0-3.6.8-4.9 2.1l-.8-.8C3.8 5.6 5.8 4.7 8 4.7s4.2.9 5.7 2.4l-.8.8C11.6 6.6 9.9 5.8 8 5.8zm0 3.3c-.8 0-1.6.4-2.2 1l2.2 2.2 2.2-2.2c-.6-.6-1.4-1-2.2-1z"/></svg>
+          <svg width="22" height="11" viewBox="0 0 24 12" fill="currentColor"><rect x="1" y="1" width="19" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="3" width="13" height="6" rx="1.5"/><path d="M21 4.5v3c.8-.3 1.5-1 1.5-1.5s-.7-1.2-1.5-1.5z"/></svg>
+        </div>
+      </div>
+
+      <!-- Web View Sidebar (Active only in Web View Mode) -->
+      <aside class="web-sidebar">
+        <div class="sidebar-header">
+          <div class="my-avatar" title="Babu's Sai (You)">BS</div>
+          <div class="sidebar-icons">
+            <button class="header-action-btn" title="Community"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></button>
+            <button class="header-action-btn" title="Status"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="8 4"/></svg></button>
+            <button class="header-action-btn" title="New Chat"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></button>
+            <button class="header-action-btn" title="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>
+          </div>
+        </div>
+        <div class="sidebar-search-box">
+          <div class="sidebar-search-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <span>Search or start a new chat</span>
+          </div>
+        </div>
+        <div class="chat-list-item">
+          <div class="profile-avatar-wrap">
+            <img src="dhaar_avatar.jpg" alt="Dhaar" class="profile-avatar">
+            <span class="online-indicator"></span>
+          </div>
+          <div class="chat-list-info">
+            <div class="chat-list-top">
+              <span class="chat-list-name">𝐃𝐡𝐚𝐚𝐚𝐫𝐫𝐫</span>
+              <span class="chat-list-time">5:43 pm</span>
+            </div>
+            <div class="chat-list-lastmsg">Hmm..</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Chat Area -->
+      <main class="chat-viewport">
+        
+        <!-- Header -->
+        <header class="chat-header">
+          <div class="chat-header-left" id="headerProfileTrigger">
+            <button class="back-btn" id="backBtn" title="Back">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            </button>
+            <div class="profile-avatar-wrap">
+              <img src="dhaar_avatar.jpg" alt="Dhaar" class="profile-avatar">
+              <span class="online-indicator"></span>
+            </div>
+            <div class="profile-details">
+              <span class="profile-name">𝐃𝐡𝐚𝐚𝐚𝐫𝐫𝐫</span>
+              <span class="profile-status online">online</span>
+            </div>
+          </div>
+
+          <div class="chat-header-actions">
+            <button class="header-action-btn" id="openSearchBtn" title="Search in chat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            </button>
+            <button class="header-action-btn" id="videoCallBtn" title="Video call">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            </button>
+            <button class="header-action-btn" id="audioCallBtn" title="Voice call">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.28-.28.36-.67.25-1.02A11.36 11.36 0 0 1 8.5 4.25c0-.55-.45-1-1-1H4.25c-.55 0-1 .45-1 1C3.25 14.15 9.85 20.75 19.75 20.75c.55 0 1-.45 1-1v-3.37c0-.55-.45-1-1-1z"/></svg>
+            </button>
+            <button class="header-action-btn" id="menuToggleBtn" title="More options">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Search Bar Overlay -->
+        <div class="search-overlay-bar" id="searchBar">
+          <button class="header-action-btn" id="closeSearchBtn" title="Close search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          </button>
+          <div class="search-input-wrap">
+            <input type="text" id="searchInput" placeholder="Search in chat..." autocomplete="off">
+            <span class="search-count" id="searchCount">0/0</span>
+          </div>
+          <button class="search-nav-btn" id="prevSearchBtn" title="Previous match">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+          </button>
+          <button class="search-nav-btn" id="nextSearchBtn" title="Next match">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+        </div>
+
+        <!-- Floating Quick Tools Bar -->
+        <div class="quick-tools-bar">
+          <button class="tool-pill" id="datePickerBtn" title="Select date">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+            <span id="datePillLabel">Jump Date</span>
+          </button>
+          <button class="tool-pill" id="themeToggleBtn" title="Toggle AMOLED / Dark">
+            <span id="themeLabel">AMOLED</span>
+          </button>
+          <button class="tool-pill" id="viewModeToggleBtn" title="Switch Phone / Web View">
+            <span id="viewModeLabel">Web View</span>
+          </button>
+        </div>
+
+        <!-- Sticky Floating Date Header Indicator -->
+        <div class="sticky-date-badge" id="stickyDateBadge">08/08/2026</div>
+
+        <!-- Messages Container -->
+        <div class="messages-container" id="messagesContainer">
+          <!-- Dynamic messages will be rendered here -->
+        </div>
+
+        <!-- Scroll to Bottom Button -->
+        <button class="scroll-bottom-btn" id="scrollBottomBtn" title="Scroll to latest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+        </button>
+
+        <!-- Bottom Input Bar -->
+        <footer class="chat-input-bar">
+          <div class="input-left-buttons">
+            <button class="input-icon-btn" id="emojiBtn" title="Emoji">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+            </button>
+            <button class="input-icon-btn" id="attachBtn" title="Attach">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5a2.5 2.5 0 0 1 5 0v10.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5V6H9v9.5a3 3 0 0 0 6 0V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/></svg>
+            </button>
+          </div>
+
+          <div class="chat-input-container">
+            <input type="text" class="chat-input" id="messageInput" placeholder="Message" autocomplete="off">
+          </div>
+
+          <button class="input-action-btn" id="sendBtn" title="Send message / Voice note">
+            <svg id="micIcon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
+            <svg id="sendIcon" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </footer>
+
+        <!-- Dropdown Menu (3 Dots) -->
+        <div class="header-menu-dropdown" id="menuDropdown">
+          <div class="dropdown-item" id="jumpToStartItem">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>
+            <span>Jump to Beginning</span>
+          </div>
+          <div class="dropdown-item" id="jumpToEndItem">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+            <span>Jump to End</span>
+          </div>
+          <div class="dropdown-item" id="openDateModalItem">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+            <span>Browse by Date (23)</span>
+          </div>
+          <div class="dropdown-item divider"></div>
+          <div class="dropdown-item" id="toggleDoodleItem">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>Toggle Chat Wallpaper</span>
+          </div>
+          <div class="dropdown-item" id="exportChatSummaryItem">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            <span>Chat Info & Stats</span>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Jump to Date Modal -->
+  <div class="modal-backdrop" id="dateModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span>Select Date</span>
+        <button class="modal-close-btn" id="closeDateModal">&times;</button>
+      </div>
+      <div class="date-list-wrap" id="dateList">
+        <!-- Rendered dates -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">Notification message</div>
+
+  <!-- Scripts -->
+  <script src="chatData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
