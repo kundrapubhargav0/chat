@@ -274,13 +274,22 @@ body {
   height: 40px;
   flex-shrink: 0;
 }
-.profile-avatar {
+.default-contact-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  object-fit: cover;
-  background-color: #2a3942;
+  background-color: #6b7c85;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none;
+}
+.default-contact-avatar svg {
+  width: 26px;
+  height: 26px;
+  fill: #cfd9df;
 }
 .online-indicator {
   position: absolute;
@@ -999,4 +1008,173 @@ body {
 .toast-msg.show {
   opacity: 1;
   transform: translateX(-50%) translateY(-5px);
+}
+
+/* ========================================================
+   Mobile-Friendly & Responsive Layout Optimization
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* Remove desktop mockup bezel on actual mobile viewports */
+  body.mode-phone {
+    padding: 0 !important;
+    background: var(--chat-bg) !important;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .app-container {
+    height: 100vh;
+    height: 100dvh;
+    width: 100vw;
+  }
+
+  .mode-phone .phone-frame {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Real phones have real status bars; hide virtual notch on mobile */
+  .phone-notch-bar {
+    display: none !important;
+  }
+
+  /* Chat Header on Mobile */
+  .chat-header {
+    height: 56px;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .profile-name {
+    font-size: 15.5px;
+  }
+  .profile-status {
+    font-size: 11.5px;
+  }
+  .header-action-btn {
+    padding: 6px;
+  }
+  .header-action-btn svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  /* Quick Tool Pills */
+  .quick-tools-bar {
+    top: calc(58px + env(safe-area-inset-top, 0px));
+    right: 8px;
+    gap: 4px;
+  }
+  .tool-pill {
+    padding: 4px 8px;
+    font-size: 11px;
+    border-radius: 12px;
+  }
+  .tool-pill svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Messages on Mobile */
+  .messages-container {
+    padding: 10px 8px;
+    gap: 2.5px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .msg-bubble {
+    max-width: 88%;
+    font-size: 14px;
+    line-height: 18.5px;
+    padding: 5px 8px 5px 9px;
+  }
+  .msg-meta {
+    font-size: 10.5px;
+    margin-left: 6px;
+  }
+  .msg-ticks svg {
+    width: 15px;
+    height: 10px;
+  }
+
+  /* Bottom Input Bar with Safe Area Inset */
+  .chat-input-bar {
+    padding: 6px 6px max(8px, env(safe-area-inset-bottom, 8px)) 6px;
+    gap: 6px;
+  }
+  .input-left-buttons {
+    padding-bottom: 3px;
+  }
+  .input-icon-btn {
+    padding: 6px;
+  }
+  .input-icon-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+  .chat-input-container {
+    min-height: 38px;
+    padding: 4px 12px;
+  }
+  .chat-input {
+    font-size: 15px;
+  }
+  .input-action-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Floating Scroll to Bottom button */
+  .scroll-bottom-btn {
+    bottom: calc(64px + env(safe-area-inset-bottom, 8px));
+    right: 14px;
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Search Overlay Bar on Mobile */
+  .search-overlay-bar {
+    height: 56px;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-left: 6px;
+    padding-right: 6px;
+    gap: 8px;
+  }
+
+  /* Date Dialog Modal */
+  .modal-card {
+    width: 94%;
+    max-height: 85vh;
+    border-radius: 14px;
+  }
+  .date-item-btn {
+    padding: 10px 14px;
+    font-size: 13.5px;
+  }
+
+  /* Dropdown Menu */
+  .header-menu-dropdown {
+    right: 6px;
+    top: calc(52px + env(safe-area-inset-top, 0px));
+    width: 200px;
+  }
+}
+
+/* Extra small mobile screens (<= 380px) */
+@media screen and (max-width: 380px) {
+  .msg-bubble {
+    max-width: 92%;
+  }
+  .chat-header-actions {
+    gap: 0;
+  }
+  .quick-tools-bar {
+    display: none; /* Accessible via 3-dots menu */
+  }
 }
