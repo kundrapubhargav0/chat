@@ -582,5 +582,131 @@
     showToast('Document / Camera / Gallery / Audio / Location / Contact');
   });
 
+  // ============================================================
+  // Chat Protection & Password Lock ('avasaramaa')
+  // ============================================================
+  const LOCK_PASSWORD = 'avasaramaa';
+  const STORAGE_KEY = 'wa_chat_authenticated';
+
+  const lockScreen = document.getElementById('lockScreen');
+  const lockForm = document.getElementById('lockForm');
+  const lockPasswordInput = document.getElementById('lockPasswordInput');
+  const lockInputWrap = document.getElementById('lockInputWrap');
+  const lockErrorMsg = document.getElementById('lockErrorMsg');
+  const unlockBtn = document.getElementById('unlockBtn');
+  const togglePassEye = document.getElementById('togglePassEye');
+  const eyeShowSvg = document.getElementById('eyeShowSvg');
+  const eyeHideSvg = document.getElementById('eyeHideSvg');
+  const lockChatItem = document.getElementById('lockChatItem');
+
+  function unlockChat(remember = true) {
+    if (remember) {
+      sessionStorage.setItem(STORAGE_KEY, 'true');
+    }
+    document.body.classList.remove('is-locked');
+    if (lockScreen) lockScreen.classList.add('unlocked');
+    if (lockErrorMsg) {
+      lockErrorMsg.classList.remove('visible');
+      lockErrorMsg.textContent = '';
+    }
+    if (lockPasswordInput) lockPasswordInput.value = '';
+
+    setTimeout(() => {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 150);
+  }
+
+  function lockChat() {
+    sessionStorage.removeItem(STORAGE_KEY);
+    document.body.classList.add('is-locked');
+    if (lockScreen) lockScreen.classList.remove('unlocked');
+    if (lockPasswordInput) {
+      lockPasswordInput.value = '';
+      setTimeout(() => lockPasswordInput.focus(), 150);
+    }
+    if (lockErrorMsg) {
+      lockErrorMsg.classList.remove('visible');
+      lockErrorMsg.textContent = '';
+    }
+  }
+
+  function handleUnlockAttempt() {
+    const entered = (lockPasswordInput ? lockPasswordInput.value : '').trim();
+    if (entered.toLowerCase() === LOCK_PASSWORD.toLowerCase()) {
+      unlockChat(true);
+      showToast('Chat unlocked');
+    } else {
+      if (lockErrorMsg) {
+        lockErrorMsg.textContent = 'Incorrect password. Please try again.';
+        lockErrorMsg.classList.add('visible');
+      }
+      if (lockInputWrap) {
+        lockInputWrap.classList.remove('shake');
+        void lockInputWrap.offsetWidth; // trigger reflow
+        lockInputWrap.classList.add('shake');
+      }
+      if (lockPasswordInput) {
+        lockPasswordInput.select();
+      }
+    }
+  }
+
+  let isPassRevealed = false;
+  if (togglePassEye && lockPasswordInput) {
+    togglePassEye.addEventListener('click', () => {
+      isPassRevealed = !isPassRevealed;
+      lockPasswordInput.type = isPassRevealed ? 'text' : 'password';
+      if (eyeShowSvg) eyeShowSvg.style.display = isPassRevealed ? 'none' : 'block';
+      if (eyeHideSvg) eyeHideSvg.style.display = isPassRevealed ? 'block' : 'none';
+      togglePassEye.title = isPassRevealed ? 'Hide password' : 'Show password';
+      lockPasswordInput.focus();
+    });
+  }
+
+  if (lockForm) {
+    lockForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleUnlockAttempt();
+    });
+  }
+
+  if (unlockBtn) {
+    unlockBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      handleUnlockAttempt();
+    });
+  }
+
+  if (lockPasswordInput) {
+    lockPasswordInput.addEventListener('input', () => {
+      if (lockErrorMsg && lockErrorMsg.classList.contains('visible')) {
+        lockErrorMsg.classList.remove('visible');
+      }
+    });
+    lockPasswordInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleUnlockAttempt();
+      }
+    });
+  }
+
+  if (lockChatItem) {
+    lockChatItem.addEventListener('click', () => {
+      menuDropdown.classList.remove('active');
+      lockChat();
+      showToast('Chat locked');
+    });
+  }
+
+  // Check stored authentication state
+  if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
+    unlockChat(false);
+  } else {
+    setTimeout(() => {
+      if (lockPasswordInput) lockPasswordInput.focus();
+    }, 200);
+  }
+
   console.log(`WhatsApp Dark Mode Chat initialized with ${totalCount} messages!`);
 })();
