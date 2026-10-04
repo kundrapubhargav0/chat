@@ -599,10 +599,7 @@
   const eyeHideSvg = document.getElementById('eyeHideSvg');
   const lockChatItem = document.getElementById('lockChatItem');
 
-  function unlockChat(remember = true) {
-    if (remember) {
-      sessionStorage.setItem(STORAGE_KEY, 'true');
-    }
+  function unlockChat() {
     document.body.classList.remove('is-locked');
     if (lockScreen) lockScreen.classList.add('unlocked');
     if (lockErrorMsg) {
@@ -617,7 +614,10 @@
   }
 
   function lockChat() {
-    sessionStorage.removeItem(STORAGE_KEY);
+    try {
+      sessionStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(STORAGE_KEY);
+    } catch(e) {}
     document.body.classList.add('is-locked');
     if (lockScreen) lockScreen.classList.remove('unlocked');
     if (lockPasswordInput) {
@@ -633,7 +633,7 @@
   function handleUnlockAttempt() {
     const entered = (lockPasswordInput ? lockPasswordInput.value : '').trim();
     if (entered.toLowerCase() === LOCK_PASSWORD.toLowerCase()) {
-      unlockChat(true);
+      unlockChat();
       showToast('Chat unlocked');
     } else {
       if (lockErrorMsg) {
@@ -699,14 +699,11 @@
     });
   }
 
-  // Check stored authentication state
-  if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
-    unlockChat(false);
-  } else {
-    setTimeout(() => {
-      if (lockPasswordInput) lockPasswordInput.focus();
-    }, 200);
-  }
+  // Always require password on every refresh / page load
+  lockChat();
+  setTimeout(() => {
+    if (lockPasswordInput) lockPasswordInput.focus();
+  }, 200);
 
   console.log(`WhatsApp Dark Mode Chat initialized with ${totalCount} messages!`);
 })();
